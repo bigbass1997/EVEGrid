@@ -2,6 +2,9 @@ package com.bigbass1997.evegrid.states;
 
 import java.util.ArrayList;
 
+import com.badlogic.gdx.assets.AssetManager;
+import com.bigbass1997.evegrid.graphics.fonts.FontManager;
+
 /**
  * Contains and controls all states within the program.
  * <p>
@@ -18,18 +21,36 @@ public class StateManager {
 	//All previous states. Allows for switching between states without losing data.
 	private ArrayList<State> previousStates;
 	
+	//AssetManager
+	public AssetManager assets;
+	private boolean initAssets = false;
+	
 	public StateManager(){
-		
+		initAssets();
 	}
 	
 	public StateManager(State firstState){
+		initAssets();
 		init(firstState);
 	}
 	
 	public void init(State firstState){
 		previousStates = new ArrayList<State>();
-				
+		
 		setState(firstState);
+	}
+	
+	public void initAssets(){
+		if(!initAssets){
+			//init AssetManager
+			assets = new AssetManager();
+			
+			//load assets here
+			FontManager.addFont("bin/fonts/computer.ttf");
+			
+			//block until all the assets are done loading
+			assets.finishLoading();
+		}
 	}
 	
 	/**
@@ -82,5 +103,7 @@ public class StateManager {
 			if(s != null) s.dispose();
 		}
 		runningState.dispose();
+		
+		assets.dispose();
 	}
 }

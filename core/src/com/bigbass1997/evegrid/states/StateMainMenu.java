@@ -1,26 +1,25 @@
 package com.bigbass1997.evegrid.states;
 
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.bigbass1997.evegrid.graphics.Draw;
+import com.badlogic.gdx.math.Vector2;
+import com.bigbass1997.evegrid.commands.CommandChangeState;
+import com.bigbass1997.evegrid.objects.ButtonFactory;
 
 public class StateMainMenu extends State {
 	
-	private TextField tField;
+	private ButtonFactory bFactory;
 	
 	public StateMainMenu(StateManager sm){
 		super(sm, "MAIN_MENU");
 		
-		//tField = new TextField();
+		bFactory = new ButtonFactory();
+		bFactory.createButton(new CommandChangeState(sm, new StateOreBuy(sm)), new Vector2(10, 10), new Vector2(50, 50), 0xFFFFFFFF, "");
 	}
 	
 	public void render(){
-		Draw.rect(sr, 50, 50, 100, 200, ShapeType.Filled, 0x00FF00FF);
-		
-		
+		bFactory.render(sr, batch);
 	}
 	
 	public void update(float delta){
-		
+		bFactory.update(delta);
 	}
 }
