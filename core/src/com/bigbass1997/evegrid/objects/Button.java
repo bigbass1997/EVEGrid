@@ -16,6 +16,7 @@ public class Button {
 	public Vector2 pos, dim;
 	private int color;
 	private String text;
+	private boolean ready = true;
 	
 	public Button(Command command, Vector2 pos, Vector2 dim, int color, String text){
 		this.command = command;
@@ -34,8 +35,13 @@ public class Button {
 		float mx = input.getX();
 		float my = -input.getY() + Gdx.graphics.getHeight();
 		
-		if(input.isButtonPressed(Buttons.LEFT) && mx >= pos.x && mx <= pos.x + dim.x && my >= pos.y && my <= pos.y + dim.y){
-			callCommand();
+		if(!ready && !input.isButtonPressed(Buttons.LEFT)) ready = true;
+		
+		if(ready){
+			if(input.isButtonPressed(Buttons.LEFT) && mx >= pos.x && mx <= pos.x + dim.x && my >= pos.y && my <= pos.y + dim.y){
+				callCommand();
+				ready = false;
+			}
 		}
 	}
 	

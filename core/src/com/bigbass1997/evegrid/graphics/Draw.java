@@ -3,8 +3,13 @@ package com.bigbass1997.evegrid.graphics;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
+import com.badlogic.gdx.math.Vector2;
+import com.bigbass1997.evegrid.graphics.fonts.FontID;
+import com.bigbass1997.evegrid.graphics.fonts.FontManager;
 
 /**
  * Contains a set of functions that will draw various
@@ -13,7 +18,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
  * All functions are static so no need to create a Draw object.
  * <p>
  * 
- * Utilizes the ShapeRenderer provided by LibGDX for quick shading of simple shapes.
+ * Utilizes the ShapeRenderer provided by LibGDX for quick rendering of simple shapes.
  * 
  * @see ShapeRenderer
  */
@@ -50,19 +55,19 @@ public class Draw {
 	 * @param s String
 	 * @param x x-axis position from the origin
 	 * @param y y-axis position from the origin
-	 * @param font BitmapFont from Assets
+	 * @param font Font
 	 * @param color RGBA 0x + Hexadecimal code for each color. 0x000000FF would be black with 100% opacity
 	 * 
 	 * @see Color
 	 */
-//	public static void string(SpriteBatch batch, String s, float x, float y, FID fid, int color){
-//		BitmapFont font = Assets.getFont(fid);
-//		font.setColor(Color.WHITE); //Resets color
-//		font.setColor(new Color(color));
-//		batch.begin();
-//		font.draw(batch, s, x, y);
-//		batch.end();
-//	}
+	public static void string(SpriteBatch batch, String s, Vector2 pos, FontID fontid, int color){
+		BitmapFont font = FontManager.getFont(fontid).font;
+		font.setColor(Color.WHITE); //Resets color
+		font.setColor(new Color(color));
+		batch.begin();
+		font.draw(batch, s, pos.x, pos.y);
+		batch.end();
+	}
 	
 	public static void boarder(ShapeRenderer sr, float x, float y, float width, float height, int thickness, int color){
 		for(int i = 0; i < thickness; i++){
