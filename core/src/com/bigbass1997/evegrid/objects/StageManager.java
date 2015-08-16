@@ -3,6 +3,8 @@ package com.bigbass1997.evegrid.objects;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -10,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.SelectBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.utils.Align;
+import com.bigbass1997.evegrid.graphics.Draw;
 
 public class StageManager {
 	
@@ -59,7 +62,12 @@ public class StageManager {
 		createLabel(text, skin, pos, dim, Align.left);
 	}
 	
-	public void render(){
+	public void render(ShapeRenderer sr){
+		for(Label label : labels){
+			float x = label.getX(), y = label.getY(), width = label.getWidth(), height = label.getHeight();
+			Draw.rect(sr, x, y, width, height, ShapeType.Filled, 0x3D3D3DFF);
+			Draw.boarder(sr, x, y, width, height, 1, 0xFFFFFFFF);
+		}
 		stage.draw();
 	}
 	

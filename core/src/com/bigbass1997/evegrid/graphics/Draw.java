@@ -43,7 +43,14 @@ public class Draw {
 		Gdx.graphics.getGL20().glEnable(GL20.GL_BLEND);
 		sr.begin(type);
 		sr.setColor(new Color(color));
-		sr.rect(x, y, width, height);
+		if(type == ShapeType.Line){
+			sr.line(x, y, x + width, y);
+			sr.line(x + width, y, x + width, y + height);
+			sr.line(x + width + 1.5f, y + height, x, y + height);
+			sr.line(x, y + height, x, y);
+		} else {
+			sr.rect(x, y, width, height);
+		}
 		sr.end();
 		Gdx.graphics.getGL20().glDisable(GL20.GL_BLEND);
 	}

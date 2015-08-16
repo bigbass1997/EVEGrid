@@ -18,7 +18,6 @@ public class CommandGetOreValues implements Command {
 	
 	@Override
 	public void execute(){
-		long startTime = System.nanoTime();
 		Market market = new Market();
 		values.clear();
 		for(int i = 0; i < typeIDs.size(); i++){
@@ -26,6 +25,5 @@ public class CommandGetOreValues implements Command {
 			if(stat != null) values.add(stat.max);
 			else values.add(0f);
 		}
-		System.out.println("Data loaded in: " + ((System.nanoTime() - startTime) / 1000000) + "ms");
 	}
 }

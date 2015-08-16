@@ -17,6 +17,8 @@ public class Button {
 	private int color;
 	private String text;
 	private boolean ready = true;
+
+	public long lastExecuteTime = 0;
 	
 	public Button(Command command, Vector2 pos, Vector2 dim, int color, String text){
 		this.command = command;
@@ -46,6 +48,8 @@ public class Button {
 	}
 	
 	public void callCommand(){
+		long startTime = System.nanoTime();
 		command.execute();
+		lastExecuteTime = System.nanoTime() - startTime;
 	}
 }
