@@ -10,6 +10,9 @@ import com.bigbass1997.evegrid.graphics.Draw;
 import com.bigbass1997.evegrid.graphics.fonts.FontID;
 import com.bigbass1997.evegrid.graphics.skins.SkinID;
 import com.bigbass1997.evegrid.graphics.skins.SkinManager;
+import com.bigbass1997.evegrid.market.Market;
+import com.bigbass1997.evegrid.market.MarketStat.OrderType;
+import com.bigbass1997.evegrid.market.Types;
 import com.bigbass1997.evegrid.objects.ButtonFactory;
 import com.bigbass1997.evegrid.objects.StageManager;
 
@@ -22,6 +25,7 @@ public class StateOreBuy extends State {
 	
 	private ButtonFactory bFactory;
 	
+	private Market market;
 	
 	public StateOreBuy(StateManager sm) {
 		super(sm, "ORE_BUY");
@@ -34,11 +38,7 @@ public class StateOreBuy extends State {
 		bFactory = new ButtonFactory();
 		bFactory.createButton(new CommandGetOreValues(values, typeIDs), new Vector2(10, 10), new Vector2(80, 20), 0xDDDDDDFF, "SUBMIT");
 		
-		typeIDs.add(0);
-		typeIDs.add(0);
-		typeIDs.add(0);
-		typeIDs.add(0);
-		typeIDs.add(0);
+		market = new Market();
 		
 		float rowOff = 20;
 		for(int i = 0; i < 24; i++){
@@ -72,14 +72,21 @@ public class StateOreBuy extends State {
 				new Vector2(120, 20),
 				Align.center
 		);
+		
+		//System.out.println(market.getMarketStat(OrderType.BUY, Types.getTypeID("Veldspar"), 30000142));
 	}
 	
 	public void render(){
 		sManager.render();
 		bFactory.render(sr, batch);
 		
+		typeIDs.clear();
+		for(int i = 0; i < 24; i++){
+			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
+		}
+		
 		for(int i = 0; i < values.size(); i++){
-			Draw.string(batch, "i = " + values.get(i), new Vector2(330, Gdx.graphics.getHeight() - 36 - (i * 25)), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+			Draw.string(batch, values.get(i), new Vector2(330, Gdx.graphics.getHeight() - 34 - (i * 25)), new FontID("bin/fonts/computer.ttf", 28), 0xFFFFFFFF);
 		}
 	}
 	

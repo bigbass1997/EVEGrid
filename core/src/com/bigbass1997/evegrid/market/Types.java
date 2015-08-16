@@ -3,6 +3,7 @@ package com.bigbass1997.evegrid.market;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Hashtable;
+import java.util.Map.Entry;
 
 import com.badlogic.gdx.Gdx;
 import com.google.gson.JsonElement;
@@ -44,7 +45,6 @@ public class Types {
 		
 		if(itemCache.get(id) != null) return itemCache.get(id);
 		
-		typeIDjson.getAsJsonObject().getAsJsonArray("items");
 		for(JsonElement item : typeIDjson.getAsJsonObject().getAsJsonArray("items")){
 			if(item.getAsJsonObject().get("id").getAsInt() == id){
 				String name = item.getAsJsonObject().get("name").getAsString();
@@ -54,5 +54,27 @@ public class Types {
 		}
 		
 		return "unknown";
+	}
+	
+	public static int getTypeID(String name){
+		init();
+		
+		if(name.equalsIgnoreCase("N/A")) return -1;
+		
+		if(itemCache.containsValue(name)){
+			for(Entry<Integer, String> entry : itemCache.entrySet()){
+				if(entry.getValue() == name) return entry.getKey();
+			}
+		}
+		
+		for(JsonElement item : typeIDjson.getAsJsonObject().getAsJsonArray("items")){
+			if(item.getAsJsonObject().get("name").getAsString().equalsIgnoreCase(name)){
+				int id = item.getAsJsonObject().get("id").getAsInt();
+				itemCache.put(id, name);
+				return id;
+			}
+		}
+		
+		return -1;
 	}
 }

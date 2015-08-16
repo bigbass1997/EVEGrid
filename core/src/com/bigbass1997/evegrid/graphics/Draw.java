@@ -60,12 +60,12 @@ public class Draw {
 	 * 
 	 * @see Color
 	 */
-	public static void string(SpriteBatch batch, String s, Vector2 pos, FontID fontid, int color){
+	public static void string(SpriteBatch batch, Object s, Vector2 pos, FontID fontid, int color){
 		BitmapFont font = FontManager.getFont(fontid).font;
 		font.setColor(Color.WHITE); //Resets color
 		font.setColor(new Color(color));
 		batch.begin();
-		font.draw(batch, s, pos.x, pos.y);
+		font.draw(batch, s.toString(), pos.x, pos.y);
 		batch.end();
 	}
 	

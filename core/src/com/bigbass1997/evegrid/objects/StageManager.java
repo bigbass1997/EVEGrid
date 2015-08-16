@@ -14,9 +14,9 @@ import com.badlogic.gdx.utils.Align;
 public class StageManager {
 	
 	private Stage stage;
-	private ArrayList<TextField> textFields; private int tfID = 0;
-	private ArrayList<SelectBox<String>> selectBoxes; private int sbID = 0;
-	private ArrayList<Label> labels; private int lID = 0;
+	public ArrayList<TextField> textFields; private int tfID = 0;
+	public ArrayList<SelectBox<String>> selectBoxes; private int sbID = 0;
+	public ArrayList<Label> labels; private int lID = 0;
 	
 	public StageManager(){
 		stage = new Stage();

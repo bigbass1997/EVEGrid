@@ -26,6 +26,9 @@ public class Main extends ApplicationAdapter {
 		
 		//Updating
 		sm.update(Gdx.graphics.getDeltaTime());
+		
+        //Print approx. ticks (renders) per second.
+		//System.out.println(1.0f / Gdx.graphics.getDeltaTime());
 	}
 	
 	@Override
