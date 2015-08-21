@@ -40,12 +40,13 @@ public class StateOreBuy extends State {
 		typeIDs = new ArrayList<Integer>();
 		
 		bFactory = new ButtonFactory();
-		int b = bFactory.createButton(new CommandGetOreValues(values, typeIDs), new Vector2(10, 10), new Vector2(80, 20), 0xDDDDDDFF, "SUBMIT");
+		int b = bFactory.createButton(new CommandGetOreValues(values, typeIDs), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
 		
 		df = new DecimalFormat("#");
 		df.setMaximumFractionDigits(2);
 		df.setMinimumIntegerDigits(40);
 		
+		// Main Grid \\
 		float rowOff = 20;
 		for(int i = 0; i < 24; i++){
 			sManager.createTextField(
@@ -59,7 +60,25 @@ public class StateOreBuy extends State {
 					SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
 					new Vector2(10, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
 					new Vector2(185, 20),
-					new String[]{"N/A", "Veldspar", "Concentrated Veldspar"}
+					new String[]{
+						"N/A",
+						"Omber", "Silvery Omber", "Golden Omber",
+						"Plagioclase", "Azure Plagioclase", "Rich Plagioclase",
+						"Pyroxeres", "Solid Pyroxeres", "Viscous Pyroxeres",
+						"Scordite", "Condensed Scordite", "Massive Scordite",
+						"Veldspar", "Concentrated Veldspar", "Dense Veldspar",
+						"Kernite", "Luminous Kernite", "Fiery Kernite",
+						"Hedbergite", "Vitric Hedbergite", "Glazed Hedbergite",
+						"Hemorphite", "Vivid Hemorphite", "Radiant Hemorphite",
+						"Jaspet", "Pure Jaspet", "Pristine Jaspet",
+						"Arkonor", "Crimson Arkonor", "Prime Arkonor",
+						"Bistot", "Triclinic Bistot", "Monoclinic Bistot",
+						"Crokite", "Sharp Crokite", "Crystalline Crokite",
+						"Ochre", "Onyx Ochre", "Obsidian Ochre",
+						"Gneiss", "Iridescent Gneiss", "Prismatic Gneiss",
+						"Mercoxit", "Magma Mercoxit", "Vitreous Mercoxit",
+						"Spodumain", "Bright Spodumain", "Gleaming Spodumain"
+					}
 			);
 		}
 		
@@ -88,19 +107,43 @@ public class StateOreBuy extends State {
 		);
 		
 		sManager.createLabel(
-				"Total",
+				"Before Tax",
 				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
 				new Vector2(450, Gdx.graphics.getHeight() - 24),
 				new Vector2(150, 20),
 				Align.center
 		);
+
+		sManager.createLabel(
+				"After Tax",
+				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				new Vector2(605, Gdx.graphics.getHeight() - 24),
+				new Vector2(150, 20),
+				Align.center
+		);
 		
+		// Tax Input \\
+		sManager.createTextField(
+				"0.015",
+				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 30),
+				new Vector2(70, 20)
+		);
+		
+		sManager.createLabel(
+				"Sales Tax:",
+				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				new Vector2(Gdx.graphics.getWidth() - 170, Gdx.graphics.getHeight() - 30),
+				new Vector2(85, 20),
+				Align.center
+		);
+		
+		// TypeID input init text
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
 			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
 		}
 		bFactory.getButton(b).callCommand();
-		//System.out.println(market.getMarketStat(OrderType.BUY, Types.getTypeID("Veldspar"), 30000142));
 	}
 	
 	public void render(){
@@ -114,6 +157,16 @@ public class StateOreBuy extends State {
 		
 		Vector2 pos = new Vector2();
 		float width, height;
+		
+		BigDecimal valPerUnit;
+		BigInteger quantity;
+		BigDecimal total = null;
+		BigDecimal displayTotal;
+		
+		NumberFormat format = NumberFormat.getInstance();
+		format.setMinimumFractionDigits(2);
+		format.setMaximumFractionDigits(2);
+		
 		for(int i = 0; i < values.size(); i++){
 			pos = new Vector2(330, Gdx.graphics.getHeight() - 34 - (i * 25));
 			width = sManager.labels.get(2).getWidth();
@@ -128,26 +181,36 @@ public class StateOreBuy extends State {
 			width = sManager.labels.get(3).getWidth();
 			height = sManager.labels.get(3).getHeight();
 			
-			//render total values (isk/unit x quantity)
+			//render total values before tax (isk/unit x quantity)
 			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
 			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
 			if(!sManager.textFields.get(i).getText().equalsIgnoreCase("")){
-				BigDecimal valPerUnit = BigDecimal.valueOf(values.get(i));
-				BigInteger quantity = BigInteger.valueOf(Long.valueOf(sManager.textFields.get(i).getText()));
-				BigDecimal total = valPerUnit.multiply(new BigDecimal(quantity));
-				BigDecimal displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
+				valPerUnit = BigDecimal.valueOf(values.get(i));
+				quantity = BigInteger.valueOf(Long.valueOf(sManager.textFields.get(i).getText()));
+				total = valPerUnit.multiply(new BigDecimal(quantity));
+				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 				
-				NumberFormat format = NumberFormat.getInstance();
-				format.setMinimumFractionDigits(2);
-				format.setMaximumFractionDigits(2);
+				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+			} else {
+				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+			}
+			
+			//render total values after tax ((isk/unit x quantity) - ((isk/unit x quantity) x tax))
+			pos = new Vector2(610, Gdx.graphics.getHeight() - 34 - (i * 25));
+			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
+			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
+			if(!sManager.textFields.get(i).getText().equalsIgnoreCase("")){
+				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get(24).getText()))));
+				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 				
 				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
 			} else {
 				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
 			}
 		}
-		
-		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(10, 100), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
+
+		Draw.string(batch, "All market data is retrieved through EVE-Central's Marketstat API.", new Vector2(100, 30), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
+		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(100, 18), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
 		
 		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(10, 50), new FontID("bin/fonts/computer.ttf", 20), 0xFFFFFFFF);
 	}

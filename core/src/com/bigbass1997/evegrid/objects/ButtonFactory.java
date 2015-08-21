@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.bigbass1997.evegrid.commands.Command;
+import com.bigbass1997.evegrid.graphics.fonts.FontID;
 
 public class ButtonFactory {
 	
@@ -17,8 +18,8 @@ public class ButtonFactory {
 		id = -1;
 	}
 	
-	public int createButton(Command command, Vector2 pos, Vector2 dim, int color, String text){
-		Button b = new Button(command, pos, dim, color, text);
+	public int createButton(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text){
+		Button b = new Button(command, pos, dim, fontID, tColor, bColor, text);
 		buttonList.add(b);
 		
 		id++;

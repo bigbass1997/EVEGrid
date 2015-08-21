@@ -10,6 +10,8 @@ public class DesktopLauncher {
 		
 		config.width = 1200;
 		config.height = 800;
+		config.resizable = false;
+		config.title = "EVE-Online Market Multi-Tool";
 		
 		new LwjglApplication(new Main(), config);
 	}
