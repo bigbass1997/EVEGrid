@@ -11,36 +11,42 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
+import com.bigbass1997.evegrid.commands.CommandChangeState;
 import com.bigbass1997.evegrid.commands.CommandGetOreValues;
 import com.bigbass1997.evegrid.graphics.Draw;
 import com.bigbass1997.evegrid.graphics.fonts.FontID;
 import com.bigbass1997.evegrid.graphics.skins.SkinID;
 import com.bigbass1997.evegrid.graphics.skins.SkinManager;
+import com.bigbass1997.evegrid.market.Systems;
 import com.bigbass1997.evegrid.market.Types;
 import com.bigbass1997.evegrid.objects.ButtonFactory;
 import com.bigbass1997.evegrid.objects.StageManager;
 
-public class StateOreBuy extends State {
+public class StateOreHighBuy extends State {
 
 	private StageManager sManager;
 	
 	private ArrayList<Float> values;
 	private ArrayList<Integer> typeIDs;
+	private ArrayList<Integer> systemID;
 	
 	private ButtonFactory bFactory;
 	
 	private DecimalFormat df;
 	
-	public StateOreBuy(StateManager sm) {
+	private boolean initComplete = false;
+	
+	public StateOreHighBuy(StateManager sm) {
 		super(sm, "ORE_BUY");
 		
 		sManager = new StageManager();
 		
 		values = new ArrayList<Float>();
 		typeIDs = new ArrayList<Integer>();
+		systemID = new ArrayList<Integer>();
 		
 		bFactory = new ButtonFactory();
-		int b = bFactory.createButton(new CommandGetOreValues(values, typeIDs), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
+		int b = bFactory.createButton(new CommandGetOreValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
 		
 		df = new DecimalFormat("#");
 		df.setMaximumFractionDigits(2);
@@ -138,22 +144,37 @@ public class StateOreBuy extends State {
 				Align.center
 		);
 		
+		// System Input \\
+		sManager.createTextField(
+				"Jita",
+				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 55),
+				new Vector2(70, 20)
+		);
+		
+		sManager.createLabel(
+				"System:",
+				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				new Vector2(Gdx.graphics.getWidth() - 155, Gdx.graphics.getHeight() - 55),
+				new Vector2(70, 20),
+				Align.center
+		);
+		
 		// TypeID input init text
+		systemID.clear();
+		systemID.add(0);
+		
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
 			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
 		}
+		
 		bFactory.getButton(b).callCommand();
 	}
 	
 	public void render(){
 		sManager.render(sr);
 		bFactory.render(sr, batch);
-		
-		typeIDs.clear();
-		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
-		}
 		
 		Vector2 pos = new Vector2();
 		float width, height;
@@ -208,16 +229,28 @@ public class StateOreBuy extends State {
 				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
 			}
 		}
-
+		
+		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("bin/fonts/computer.ttf", 18), 0xFFFFFFFF);
 		Draw.string(batch, "All market data is retrieved through EVE-Central's Marketstat API.", new Vector2(100, 30), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
 		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(100, 18), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
-		
-		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(10, 50), new FontID("bin/fonts/computer.ttf", 20), 0xFFFFFFFF);
 	}
 	
 	public void update(float delta){
+		typeIDs.clear();
+		for(int i = 0; i < 24; i++){
+			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
+		}
+		
+		systemID.clear();
+		systemID.add(Systems.getSystemID(sManager.textFields.get(25).getText()));
+		
 		sManager.update(delta);
 		bFactory.update(delta);
+		
+		if(!initComplete){
+			bFactory.createButton(new CommandChangeState(sm, StateMainMenu.class), new Vector2(10, 35), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "MAIN MENU");
+			initComplete = true;
+		}
 	}
 	
 	public void dispose(){

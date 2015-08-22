@@ -52,6 +52,9 @@ public class State {
 		this(sm, "GENERIC");
 	}
 	
+	public State(){
+	}
+	
 	public void render(){
 		
 	}
