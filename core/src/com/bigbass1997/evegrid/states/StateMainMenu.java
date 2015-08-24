@@ -16,13 +16,12 @@ public class StateMainMenu extends State {
 		
 		bFactory = new ButtonFactory();
 		bFactory.createButton(
-				new CommandChangeState(sm, StateOreHighBuy.class),
-				//new CommandChangeState(sm, new StateOreHighBuy(sm)),
+				new CommandChangeState(sm, StateItemHighBuy.class),
 				new Vector2((Gdx.graphics.getWidth() / 2) - (450/2), 680),
 				new Vector2(450, 36),
 				new FontID("bin/fonts/computer.ttf", 42),
 				0x000000FF, 0xFFFFFFFF,
-				"Ore - High Buy Order Grid"
+				"Max Buyorder for Items"
 		);
 	}
 	

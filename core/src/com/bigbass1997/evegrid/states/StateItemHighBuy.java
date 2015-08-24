@@ -22,7 +22,7 @@ import com.bigbass1997.evegrid.market.Types;
 import com.bigbass1997.evegrid.objects.ButtonFactory;
 import com.bigbass1997.evegrid.objects.StageManager;
 
-public class StateOreHighBuy extends State {
+public class StateItemHighBuy extends State {
 
 	private StageManager sManager;
 	
@@ -36,7 +36,7 @@ public class StateOreHighBuy extends State {
 	
 	private boolean initComplete = false;
 	
-	public StateOreHighBuy(StateManager sm) {
+	public StateItemHighBuy(StateManager sm) {
 		super(sm, "ORE_BUY");
 		
 		sManager = new StageManager();
@@ -61,35 +61,19 @@ public class StateOreHighBuy extends State {
 					new Vector2(200, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
 					new Vector2(120, 20)
 			);
-			
-			sManager.createSelectBox(
+		}
+		
+		for(int i = 0; i < 24; i++){
+			sManager.createTextField(
+					"",
 					SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
 					new Vector2(10, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
-					new Vector2(185, 20),
-					new String[]{
-						"N/A",
-						"Omber", "Silvery Omber", "Golden Omber",
-						"Plagioclase", "Azure Plagioclase", "Rich Plagioclase",
-						"Pyroxeres", "Solid Pyroxeres", "Viscous Pyroxeres",
-						"Scordite", "Condensed Scordite", "Massive Scordite",
-						"Veldspar", "Concentrated Veldspar", "Dense Veldspar",
-						"Kernite", "Luminous Kernite", "Fiery Kernite",
-						"Hedbergite", "Vitric Hedbergite", "Glazed Hedbergite",
-						"Hemorphite", "Vivid Hemorphite", "Radiant Hemorphite",
-						"Jaspet", "Pure Jaspet", "Pristine Jaspet",
-						"Arkonor", "Crimson Arkonor", "Prime Arkonor",
-						"Bistot", "Triclinic Bistot", "Monoclinic Bistot",
-						"Crokite", "Sharp Crokite", "Crystalline Crokite",
-						"Ochre", "Onyx Ochre", "Obsidian Ochre",
-						"Gneiss", "Iridescent Gneiss", "Prismatic Gneiss",
-						"Mercoxit", "Magma Mercoxit", "Vitreous Mercoxit",
-						"Spodumain", "Bright Spodumain", "Gleaming Spodumain"
-					}
+					new Vector2(185, 20)
 			);
 		}
 		
 		sManager.createLabel(
-				"Ore Name",
+				"Item Name",
 				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
 				new Vector2(10, Gdx.graphics.getHeight() - 24),
 				new Vector2(185, 20),
@@ -166,7 +150,7 @@ public class StateOreHighBuy extends State {
 		
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
+			typeIDs.add(Types.getTypeID(sManager.textFields.get(24 + i).getText()));
 		}
 		
 		bFactory.getButton(b).callCommand();
@@ -225,8 +209,8 @@ public class StateOreHighBuy extends State {
 			pos = new Vector2(610, Gdx.graphics.getHeight() - 34 - (i * 25));
 			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
 			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
-			if(!sManager.textFields.get(i).getText().equalsIgnoreCase("")){
-				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get(24).getText()))));
+			if(!sManager.textFields.get(i).getText().isEmpty() && !sManager.textFields.get(24).getText().isEmpty()){
+				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get(48).getText()))));
 				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 
 				grandTotalAfter = grandTotalAfter.add(total);
@@ -254,11 +238,11 @@ public class StateOreHighBuy extends State {
 	public void update(float delta){
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.selectBoxes.get(i).getSelected()));
+			typeIDs.add(Types.getTypeID(sManager.textFields.get(24 + i).getText()));
 		}
 		
 		systemID.clear();
-		systemID.add(Systems.getSystemID(sManager.textFields.get(25).getText()));
+		systemID.add(Systems.getSystemID(sManager.textFields.get(49).getText()));
 		
 		sManager.update(delta);
 		bFactory.update(delta);

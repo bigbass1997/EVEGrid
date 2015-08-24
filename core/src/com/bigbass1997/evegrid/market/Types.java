@@ -43,6 +43,8 @@ public class Types {
 	public static String getTypeName(int id){
 		init();
 		
+		if(id < 0) return "unknown";
+		
 		if(itemCache.get(id) != null) return itemCache.get(id);
 		
 		for(JsonElement item : typeIDjson.getAsJsonObject().getAsJsonArray("items")){
@@ -59,7 +61,7 @@ public class Types {
 	public static int getTypeID(String name){
 		init();
 		
-		if(name.equalsIgnoreCase("N/A")) return -1;
+		if(name.equalsIgnoreCase("N/A") || name.isEmpty()) return -1;
 		
 		if(itemCache.containsValue(name)){
 			for(Entry<Integer, String> entry : itemCache.entrySet()){
