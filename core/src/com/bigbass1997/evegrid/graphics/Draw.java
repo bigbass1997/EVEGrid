@@ -94,4 +94,10 @@ public class Draw {
 	public static void dot(ShapeRenderer sr, float x, float y, int color){
 		rect(sr, x, y, 4.0f, 4.0f, ShapeType.Filled, color);
 	}
+	
+	public static void fakeLabel(ShapeRenderer sr, SpriteBatch batch, Vector2 pos, float width, float height, Object text, FontID fontID){
+		Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
+		Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
+		Draw.string(batch, text, pos.sub(0, 1), fontID, 0xFFFFFFFF);
+	}
 }

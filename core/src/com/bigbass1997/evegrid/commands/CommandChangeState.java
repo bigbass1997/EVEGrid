@@ -4,6 +4,8 @@ import com.bigbass1997.evegrid.states.State;
 import com.bigbass1997.evegrid.states.StateMainMenu;
 import com.bigbass1997.evegrid.states.StateManager;
 import com.bigbass1997.evegrid.states.StateOreHighBuy;
+import com.bigbass1997.evegrid.states.StateRemoteMarket;
+import com.bigbass1997.evegrid.states.StateSellOreVsRefine;
 
 public class CommandChangeState implements Command {
 	
@@ -23,6 +25,10 @@ public class CommandChangeState implements Command {
 			sm.setState(new StateMainMenu(sm));
 		}else if(state.equals(StateOreHighBuy.class)){
 			sm.setState(new StateOreHighBuy(sm));
+		}else if(state.equals(StateSellOreVsRefine.class)){
+			sm.setState(new StateSellOreVsRefine(sm));
+		}else if(state.equals(StateRemoteMarket.class)){
+			sm.setState(new StateRemoteMarket(sm));
 		}
 	}
 }

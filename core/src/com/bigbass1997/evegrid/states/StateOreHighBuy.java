@@ -140,7 +140,7 @@ public class StateOreHighBuy extends State {
 				"Sales Tax:",
 				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
 				new Vector2(Gdx.graphics.getWidth() - 170, Gdx.graphics.getHeight() - 30),
-				new Vector2(85, 20),
+				new Vector2(85, 19),
 				Align.center
 		);
 		
@@ -156,7 +156,7 @@ public class StateOreHighBuy extends State {
 				"System:",
 				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
 				new Vector2(Gdx.graphics.getWidth() - 155, Gdx.graphics.getHeight() - 55),
-				new Vector2(70, 20),
+				new Vector2(70, 19),
 				Align.center
 		);
 		
@@ -183,6 +183,9 @@ public class StateOreHighBuy extends State {
 		BigInteger quantity;
 		BigDecimal total = null;
 		BigDecimal displayTotal;
+		
+		BigDecimal grandTotalBefore = BigDecimal.ZERO;
+		BigDecimal grandTotalAfter = BigDecimal.ZERO;
 		
 		NumberFormat format = NumberFormat.getInstance();
 		format.setMinimumFractionDigits(2);
@@ -211,6 +214,8 @@ public class StateOreHighBuy extends State {
 				total = valPerUnit.multiply(new BigDecimal(quantity));
 				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 				
+				grandTotalBefore = grandTotalBefore.add(total);
+				
 				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
 			} else {
 				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
@@ -223,6 +228,8 @@ public class StateOreHighBuy extends State {
 			if(!sManager.textFields.get(i).getText().equalsIgnoreCase("")){
 				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get(24).getText()))));
 				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
+
+				grandTotalAfter = grandTotalAfter.add(total);
 				
 				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
 			} else {
@@ -230,6 +237,15 @@ public class StateOreHighBuy extends State {
 			}
 		}
 		
+		//render grand totals
+		BigDecimal grandTotalBeforeDisplay = grandTotalBefore.setScale(2, RoundingMode.HALF_EVEN);
+		BigDecimal grandTotalAfterDisplay = grandTotalAfter.setScale(2, RoundingMode.HALF_EVEN);
+		
+		Draw.fakeLabel(sr, batch, new Vector2(340, 165), 110f, 20f, "Grand Totals:", new FontID("bin/fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(455, 165), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("bin/fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(610, 165), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("bin/fonts/computer.ttf", 24));
+		
+		//footer
 		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("bin/fonts/computer.ttf", 18), 0xFFFFFFFF);
 		Draw.string(batch, "All market data is retrieved through EVE-Central's Marketstat API.", new Vector2(100, 30), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
 		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(100, 18), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
