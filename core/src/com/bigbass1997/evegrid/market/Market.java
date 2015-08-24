@@ -26,6 +26,6 @@ public class Market {
 		return null;
 	}
 	public MarketStat getMarketStat(OrderType orderType, int typeid, int systemid){
-		return getMarketStat(orderType, typeid, systemid, 10001);
+		return getMarketStat(orderType, typeid, systemid, 1);
 	}
 }

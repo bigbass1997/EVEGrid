@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.bigbass1997.evegrid.commands.CommandChangeState;
-import com.bigbass1997.evegrid.commands.CommandGetOreValues;
+import com.bigbass1997.evegrid.commands.CommandGetItemValues;
 import com.bigbass1997.evegrid.graphics.Draw;
 import com.bigbass1997.evegrid.graphics.fonts.FontID;
 import com.bigbass1997.evegrid.graphics.skins.SkinID;
@@ -46,7 +46,7 @@ public class StateItemHighBuy extends State {
 		systemID = new ArrayList<Integer>();
 		
 		bFactory = new ButtonFactory();
-		int b = bFactory.createButton(new CommandGetOreValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
+		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
 		
 		df = new DecimalFormat("#");
 		df.setMaximumFractionDigits(2);

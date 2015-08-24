@@ -6,13 +6,13 @@ import com.bigbass1997.evegrid.market.Market;
 import com.bigbass1997.evegrid.market.MarketStat;
 import com.bigbass1997.evegrid.market.MarketStat.OrderType;
 
-public class CommandGetOreValues implements Command {
+public class CommandGetItemValues implements Command {
 	
 	private ArrayList<Float> values;
 	private ArrayList<Integer> typeIDs;
 	private ArrayList<Integer> systemID;
 	
-	public CommandGetOreValues(ArrayList<Float> values, ArrayList<Integer> typeIDs, ArrayList<Integer> systemID){
+	public CommandGetItemValues(ArrayList<Float> values, ArrayList<Integer> typeIDs, ArrayList<Integer> systemID){
 		this.values = values;
 		this.typeIDs = typeIDs;
 		this.systemID = systemID;
