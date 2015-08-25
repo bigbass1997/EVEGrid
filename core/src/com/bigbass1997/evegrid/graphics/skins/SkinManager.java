@@ -29,8 +29,8 @@ public class SkinManager {
 		
 		Skin skin = new Skin();
 		skin.add("default-font", FontManager.getFont(fontID).font, BitmapFont.class);
-		FileHandle fileHandle = Gdx.files.internal("bin/skin/skin.json");
-		FileHandle atlasFile = Gdx.files.internal("bin/skin/skin.atlas");
+		FileHandle fileHandle = Gdx.files.internal("skin/skin.json");
+		FileHandle atlasFile = Gdx.files.internal("skin/skin.atlas");
 		skin.addRegions(new TextureAtlas(atlasFile));
 		skin.load(fileHandle);
 		

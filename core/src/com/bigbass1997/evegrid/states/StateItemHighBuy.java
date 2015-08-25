@@ -46,18 +46,21 @@ public class StateItemHighBuy extends State {
 		systemID = new ArrayList<Integer>();
 		
 		bFactory = new ButtonFactory();
-		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
+		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
 		
 		df = new DecimalFormat("#");
 		df.setMaximumFractionDigits(2);
 		df.setMinimumIntegerDigits(40);
+		
+		SkinID skinc24 = new SkinID(new FontID("fonts/computer.ttf", 24));
+		SkinID skinc32 = new SkinID(new FontID("fonts/computer.ttf", 32));
 		
 		// Main Grid \\
 		float rowOff = 20;
 		for(int i = 0; i < 24; i++){
 			sManager.createTextField(
 					"0",
-					SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+					SkinManager.getSkin(skinc24),
 					new Vector2(200, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
 					new Vector2(120, 20)
 			);
@@ -66,7 +69,7 @@ public class StateItemHighBuy extends State {
 		for(int i = 0; i < 24; i++){
 			sManager.createTextField(
 					"",
-					SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+					SkinManager.getSkin(skinc24),
 					new Vector2(10, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
 					new Vector2(185, 20)
 			);
@@ -74,7 +77,7 @@ public class StateItemHighBuy extends State {
 		
 		sManager.createLabel(
 				"Item Name",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				SkinManager.getSkin(skinc32),
 				new Vector2(10, Gdx.graphics.getHeight() - 24),
 				new Vector2(185, 20),
 				Align.center
@@ -82,7 +85,7 @@ public class StateItemHighBuy extends State {
 		
 		sManager.createLabel(
 				"Quantity",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				SkinManager.getSkin(skinc32),
 				new Vector2(200, Gdx.graphics.getHeight() - 24),
 				new Vector2(120, 20),
 				Align.center
@@ -90,7 +93,7 @@ public class StateItemHighBuy extends State {
 		
 		sManager.createLabel(
 				"ISK/Unit",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				SkinManager.getSkin(skinc32),
 				new Vector2(325, Gdx.graphics.getHeight() - 24),
 				new Vector2(120, 20),
 				Align.center
@@ -98,7 +101,7 @@ public class StateItemHighBuy extends State {
 		
 		sManager.createLabel(
 				"Before Tax",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				SkinManager.getSkin(skinc32),
 				new Vector2(450, Gdx.graphics.getHeight() - 24),
 				new Vector2(150, 20),
 				Align.center
@@ -106,7 +109,7 @@ public class StateItemHighBuy extends State {
 
 		sManager.createLabel(
 				"After Tax",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 32))),
+				SkinManager.getSkin(skinc32),
 				new Vector2(605, Gdx.graphics.getHeight() - 24),
 				new Vector2(150, 20),
 				Align.center
@@ -115,14 +118,14 @@ public class StateItemHighBuy extends State {
 		// Tax Input \\
 		sManager.createTextField(
 				"0.015",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				SkinManager.getSkin(skinc24),
 				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 30),
 				new Vector2(70, 20)
 		);
 		
 		sManager.createLabel(
 				"Sales Tax:",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				SkinManager.getSkin(skinc24),
 				new Vector2(Gdx.graphics.getWidth() - 170, Gdx.graphics.getHeight() - 30),
 				new Vector2(85, 19),
 				Align.center
@@ -131,14 +134,14 @@ public class StateItemHighBuy extends State {
 		// System Input \\
 		sManager.createTextField(
 				"Jita",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				SkinManager.getSkin(skinc24),
 				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 55),
 				new Vector2(70, 20)
 		);
 		
 		sManager.createLabel(
 				"System:",
-				SkinManager.getSkin(new SkinID(new FontID("bin/fonts/computer.ttf", 24))),
+				SkinManager.getSkin(skinc24),
 				new Vector2(Gdx.graphics.getWidth() - 155, Gdx.graphics.getHeight() - 55),
 				new Vector2(70, 19),
 				Align.center
@@ -183,7 +186,7 @@ public class StateItemHighBuy extends State {
 			//render isk/unit values
 			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
 			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
-			Draw.string(batch, values.get(i), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+			Draw.string(batch, values.get(i), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
 			
 			pos = new Vector2(455, Gdx.graphics.getHeight() - 34 - (i * 25));
 			width = sManager.labels.get(3).getWidth();
@@ -200,9 +203,9 @@ public class StateItemHighBuy extends State {
 				
 				grandTotalBefore = grandTotalBefore.add(total);
 				
-				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
 			} else {
-				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
 			}
 			
 			//render total values after tax ((isk/unit x quantity) - ((isk/unit x quantity) x tax))
@@ -215,9 +218,9 @@ public class StateItemHighBuy extends State {
 
 				grandTotalAfter = grandTotalAfter.add(total);
 				
-				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
 			} else {
-				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("bin/fonts/computer.ttf", 24), 0xFFFFFFFF);
+				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
 			}
 		}
 		
@@ -225,14 +228,14 @@ public class StateItemHighBuy extends State {
 		BigDecimal grandTotalBeforeDisplay = grandTotalBefore.setScale(2, RoundingMode.HALF_EVEN);
 		BigDecimal grandTotalAfterDisplay = grandTotalAfter.setScale(2, RoundingMode.HALF_EVEN);
 		
-		Draw.fakeLabel(sr, batch, new Vector2(340, 165), 110f, 20f, "Grand Totals:", new FontID("bin/fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(455, 165), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("bin/fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(610, 165), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("bin/fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(340, 165), 110f, 20f, "Grand Totals:", new FontID("fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(455, 165), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(610, 165), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
 		
 		//footer
-		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("bin/fonts/computer.ttf", 18), 0xFFFFFFFF);
-		Draw.string(batch, "All market data is retrieved through EVE-Central's Marketstat API.", new Vector2(100, 30), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
-		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(100, 18), new FontID("bin/fonts/computer.ttf", 22), 0xFFFFFFFF);
+		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("fonts/computer.ttf", 18), 0xFFFFFFFF);
+		Draw.string(batch, "All market data is retrieved through EVE-Central's Marketstat API.", new Vector2(100, 30), new FontID("fonts/computer.ttf", 22), 0xFFFFFFFF);
+		Draw.string(batch, "Notice: Large values will not be 100% accurate. Only use this as a close estimate based on current market values.", new Vector2(100, 18), new FontID("fonts/computer.ttf", 22), 0xFFFFFFFF);
 	}
 	
 	public void update(float delta){
@@ -248,7 +251,7 @@ public class StateItemHighBuy extends State {
 		bFactory.update(delta);
 		
 		if(!initComplete){
-			bFactory.createButton(new CommandChangeState(sm, StateMainMenu.class), new Vector2(10, 35), new Vector2(80, 20), new FontID("bin/fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "MAIN MENU");
+			bFactory.createButton(new CommandChangeState(sm, StateMainMenu.class), new Vector2(10, 35), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "MAIN MENU");
 			initComplete = true;
 		}
 	}

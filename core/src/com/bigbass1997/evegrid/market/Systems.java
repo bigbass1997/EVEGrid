@@ -1,11 +1,10 @@
 package com.bigbass1997.evegrid.market;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.util.Hashtable;
 import java.util.Map.Entry;
 
-import com.badlogic.gdx.Gdx;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonParser;
@@ -25,12 +24,12 @@ public class Systems {
 			jsonParser = new JsonParser();
 			
 			try {
-				systemIDjson = jsonParser.parse(new FileReader(Gdx.files.internal("bin/data/systems.json").file()));
+				systemIDjson = jsonParser.parse(new InputStreamReader(Types.class.getResourceAsStream("/data/systems.json"), "UTF-8"));
 			} catch (JsonIOException e) {
 				e.printStackTrace();
 			} catch (JsonSyntaxException e) {
 				e.printStackTrace();
-			} catch (FileNotFoundException e) {
+			} catch (UnsupportedEncodingException e) {
 				e.printStackTrace();
 			}
 			

@@ -3,7 +3,6 @@ package com.bigbass1997.evegrid.states;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.assets.AssetManager;
-import com.badlogic.gdx.graphics.Texture;
 import com.bigbass1997.evegrid.graphics.fonts.FontManager;
 
 /**
@@ -47,7 +46,7 @@ public class StateManager {
 			assets = new AssetManager();
 			
 			//load assets here
-			FontManager.addFont("bin/fonts/computer.ttf");
+			FontManager.addFont("fonts/computer.ttf");
 			
 			//block until all the assets are done loading
 			assets.finishLoading();

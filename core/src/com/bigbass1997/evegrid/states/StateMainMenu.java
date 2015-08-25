@@ -19,14 +19,14 @@ public class StateMainMenu extends State {
 				new CommandChangeState(sm, StateItemHighBuy.class),
 				new Vector2((Gdx.graphics.getWidth() / 2) - (450/2), 680),
 				new Vector2(450, 36),
-				new FontID("bin/fonts/computer.ttf", 42),
+				new FontID("fonts/computer.ttf", 42),
 				0x000000FF, 0xFFFFFFFF,
 				"Max Buyorder for Items"
 		);
 	}
 	
 	public void render(){
-		Draw.string(batch, "EVEGrid - The EVE Online MultiTool", new Vector2(200, Gdx.graphics.getHeight() - 20), new FontID("bin/fonts/computer.ttf", 82), 0x00FFFFFF);
+		Draw.string(batch, "EVEGrid - The EVE Online MultiTool", new Vector2(200, Gdx.graphics.getHeight() - 20), new FontID("fonts/computer.ttf", 82), 0x00FFFFFF);
 		
 		bFactory.render(sr, batch);
 	}
