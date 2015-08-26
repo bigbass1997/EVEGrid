@@ -228,9 +228,9 @@ public class StateItemHighBuy extends State {
 		BigDecimal grandTotalBeforeDisplay = grandTotalBefore.setScale(2, RoundingMode.HALF_EVEN);
 		BigDecimal grandTotalAfterDisplay = grandTotalAfter.setScale(2, RoundingMode.HALF_EVEN);
 		
-		Draw.fakeLabel(sr, batch, new Vector2(340, 165), 110f, 20f, "Grand Totals:", new FontID("fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(455, 165), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(610, 165), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(340, Gdx.graphics.getHeight() - 635f), 110f, 20f, "Grand Totals:", new FontID("fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(455, Gdx.graphics.getHeight() - 635f), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
+		Draw.fakeLabel(sr, batch, new Vector2(610, Gdx.graphics.getHeight() - 635f), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
 		
 		//footer
 		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("fonts/computer.ttf", 18), 0xFFFFFFFF);

@@ -17,11 +17,19 @@ public class StateMainMenu extends State {
 		bFactory = new ButtonFactory();
 		bFactory.createButton(
 				new CommandChangeState(sm, StateItemHighBuy.class),
-				new Vector2((Gdx.graphics.getWidth() / 2) - (450/2), 680),
+				new Vector2((Gdx.graphics.getWidth() / 2) - (450/2), Gdx.graphics.getHeight() - 120f),
 				new Vector2(450, 36),
 				new FontID("fonts/computer.ttf", 42),
 				0x000000FF, 0xFFFFFFFF,
 				"Max Buyorder for Items"
+		);
+		bFactory.createButton(
+				new CommandChangeState(sm, StateSellOreVsRefine.class),
+				new Vector2((Gdx.graphics.getWidth() / 2) - (450/2), Gdx.graphics.getHeight() - 170f),
+				new Vector2(450, 36),
+				new FontID("fonts/computer.ttf", 42),
+				0x000000FF, 0xFFFFFFFF,
+				"Selling Ore | Raw vs Refined"
 		);
 	}
 	

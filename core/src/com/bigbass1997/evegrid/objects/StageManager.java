@@ -58,8 +58,14 @@ public class StageManager {
 		stage.addActor(label);
 		return lID++;
 	}
+	public int createLabel(String text, Skin skin, float x, float y, float width, float height, int alignment){
+		return createLabel(text, skin, new Vector2(x, y), new Vector2(width, height), alignment);
+	}
 	public int createLabel(String text, Skin skin, Vector2 pos, Vector2 dim){
-		return createLabel(text, skin, pos, dim, Align.left);
+		return createLabel(text, skin, pos, dim, Align.center);
+	}
+	public int createLabel(String text, Skin skin, float x, float y, float width, float height){
+		return createLabel(text, skin, new Vector2(x, y), new Vector2(width, height));
 	}
 	
 	public void render(ShapeRenderer sr){
