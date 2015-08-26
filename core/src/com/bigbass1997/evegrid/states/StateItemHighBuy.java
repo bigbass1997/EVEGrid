@@ -26,6 +26,8 @@ public class StateItemHighBuy extends State {
 
 	private StageManager sManager;
 	
+	private int rows = 24;
+	
 	private ArrayList<Float> values;
 	private ArrayList<Integer> typeIDs;
 	private ArrayList<Integer> systemID;
@@ -57,95 +59,42 @@ public class StateItemHighBuy extends State {
 		
 		// Main Grid \\
 		float rowOff = 20;
-		for(int i = 0; i < 24; i++){
-			sManager.createTextField(
-					"0",
-					SkinManager.getSkin(skinc24),
-					new Vector2(200, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
-					new Vector2(120, 20)
-			);
+		for (int i = 0; i < rows; i++) {
+			//item input
+			sManager.createTextField("Item Input " + i, "", SkinManager.getSkin(skinc24), 10, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25), 185, 20);
+			
+			//quantity input
+			sManager.createTextField("Quantity Input " + i, "", SkinManager.getSkin(skinc24), 200, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25), 120, 20);
+			
+			//ISK/Unit output
+			sManager.createLabel("ISK/Unit Output " + i, "0.00", SkinManager.getSkin(skinc24), 325, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25), 120, 20, Align.left);
+			
+			//Before Tax output
+			sManager.createLabel("Before Tax Output " + i, "0.00", SkinManager.getSkin(skinc24), 450, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25), 150, 20, Align.left);
+			
+			//After Tax output
+			sManager.createLabel("After Tax Output " + i, "0.00", SkinManager.getSkin(skinc24), 605, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25), 150, 20, Align.left);
 		}
 		
-		for(int i = 0; i < 24; i++){
-			sManager.createTextField(
-					"",
-					SkinManager.getSkin(skinc24),
-					new Vector2(10, Gdx.graphics.getHeight() - (30 + rowOff) - (i * 25)),
-					new Vector2(185, 20)
-			);
-		}
-		
-		sManager.createLabel(
-				"Item Name",
-				SkinManager.getSkin(skinc32),
-				new Vector2(10, Gdx.graphics.getHeight() - 24),
-				new Vector2(185, 20),
-				Align.center
-		);
-		
-		sManager.createLabel(
-				"Quantity",
-				SkinManager.getSkin(skinc32),
-				new Vector2(200, Gdx.graphics.getHeight() - 24),
-				new Vector2(120, 20),
-				Align.center
-		);
-		
-		sManager.createLabel(
-				"ISK/Unit",
-				SkinManager.getSkin(skinc32),
-				new Vector2(325, Gdx.graphics.getHeight() - 24),
-				new Vector2(120, 20),
-				Align.center
-		);
-		
-		sManager.createLabel(
-				"Before Tax",
-				SkinManager.getSkin(skinc32),
-				new Vector2(450, Gdx.graphics.getHeight() - 24),
-				new Vector2(150, 20),
-				Align.center
-		);
+		//column headers
+		sManager.createLabel("Item Name", "Item Name", SkinManager.getSkin(skinc32), 10, Gdx.graphics.getHeight() - 24, 185, 20);
+		sManager.createLabel("Quantity", "Quantity", SkinManager.getSkin(skinc32), 200, Gdx.graphics.getHeight() - 24, 120, 20);
+		sManager.createLabel("ISK/Unit", "ISK/Unit", SkinManager.getSkin(skinc32), 325, Gdx.graphics.getHeight() - 24, 120, 20);
+		sManager.createLabel("Before Tax", "Before Tax", SkinManager.getSkin(skinc32), 450, Gdx.graphics.getHeight() - 24, 150, 20);
+		sManager.createLabel("After Tax", "After Tax", SkinManager.getSkin(skinc32), 605, Gdx.graphics.getHeight() - 24, 150, 20);
 
-		sManager.createLabel(
-				"After Tax",
-				SkinManager.getSkin(skinc32),
-				new Vector2(605, Gdx.graphics.getHeight() - 24),
-				new Vector2(150, 20),
-				Align.center
-		);
-		
 		// Tax Input \\
-		sManager.createTextField(
-				"0.015",
-				SkinManager.getSkin(skinc24),
-				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 30),
-				new Vector2(70, 20)
-		);
-		
-		sManager.createLabel(
-				"Sales Tax:",
-				SkinManager.getSkin(skinc24),
-				new Vector2(Gdx.graphics.getWidth() - 170, Gdx.graphics.getHeight() - 30),
-				new Vector2(85, 19),
-				Align.center
-		);
-		
+		sManager.createLabel("Sales Tax:", "Sales Tax:", SkinManager.getSkin(skinc24), Gdx.graphics.getWidth() - 170, Gdx.graphics.getHeight() - 30, 85, 19);
+		sManager.createTextField("Sales Tax: Input", "0.015", SkinManager.getSkin(skinc24), Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 30, 70, 20);
+
 		// System Input \\
-		sManager.createTextField(
-				"Jita",
-				SkinManager.getSkin(skinc24),
-				new Vector2(Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 55),
-				new Vector2(70, 20)
-		);
+		sManager.createLabel("System:", "System:", SkinManager.getSkin(skinc24), Gdx.graphics.getWidth() - 155, Gdx.graphics.getHeight() - 55, 70, 19);
+		sManager.createTextField("System: Input", "Jita", SkinManager.getSkin(skinc24), Gdx.graphics.getWidth() - 80, Gdx.graphics.getHeight() - 55, 70, 20);
 		
-		sManager.createLabel(
-				"System:",
-				SkinManager.getSkin(skinc24),
-				new Vector2(Gdx.graphics.getWidth() - 155, Gdx.graphics.getHeight() - 55),
-				new Vector2(70, 19),
-				Align.center
-		);
+		// Grand Total Labels \\
+		sManager.createLabel("Grand Totals:", "Grand Totals:", SkinManager.getSkin(skinc24), 335, Gdx.graphics.getHeight() - 650, 110, 20);
+		sManager.createLabel("Before Tax Total Output", "0.00", SkinManager.getSkin(skinc24), 450, Gdx.graphics.getHeight() - 650, 150, 20);
+		sManager.createLabel("After Tax Total Output", "0.00", SkinManager.getSkin(skinc24), 605, Gdx.graphics.getHeight() - 650, 150, 20);
 		
 		// TypeID input init text
 		systemID.clear();
@@ -153,7 +102,7 @@ public class StateItemHighBuy extends State {
 		
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.textFields.get(24 + i).getText()));
+			typeIDs.add(Types.getTypeID(sManager.textFields.get("Item Input " + i).getText()));
 		}
 		
 		bFactory.getButton(b).callCommand();
@@ -163,12 +112,9 @@ public class StateItemHighBuy extends State {
 		sManager.render(sr);
 		bFactory.render(sr, batch);
 		
-		Vector2 pos = new Vector2();
-		float width, height;
-		
 		BigDecimal valPerUnit;
 		BigInteger quantity;
-		BigDecimal total = null;
+		BigDecimal total = BigDecimal.ZERO;
 		BigDecimal displayTotal;
 		
 		BigDecimal grandTotalBefore = BigDecimal.ZERO;
@@ -177,60 +123,45 @@ public class StateItemHighBuy extends State {
 		NumberFormat format = NumberFormat.getInstance();
 		format.setMinimumFractionDigits(2);
 		format.setMaximumFractionDigits(2);
-		
-		for(int i = 0; i < values.size(); i++){
-			pos = new Vector2(330, Gdx.graphics.getHeight() - 34 - (i * 25));
-			width = sManager.labels.get(2).getWidth();
-			height = sManager.labels.get(2).getHeight();
+		//The quick brown fox jumps over the lazy dog.
+		for(int i = 0; i < rows; i++){
+			//update isk/unit values
+			sManager.labels.get("ISK/Unit Output " + i).setText(values.get(i).toString());
 			
-			//render isk/unit values
-			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
-			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
-			Draw.string(batch, values.get(i), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
-			
-			pos = new Vector2(455, Gdx.graphics.getHeight() - 34 - (i * 25));
-			width = sManager.labels.get(3).getWidth();
-			height = sManager.labels.get(3).getHeight();
-			
-			//render total values before tax (isk/unit x quantity)
-			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
-			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
-			if(!sManager.textFields.get(i).getText().equalsIgnoreCase("")){
+			//update total values before tax (isk/unit x quantity)
+			if(!sManager.textFields.get("Quantity Input " + i).getText().equalsIgnoreCase("")){
 				valPerUnit = BigDecimal.valueOf(values.get(i));
-				quantity = BigInteger.valueOf(Long.valueOf(sManager.textFields.get(i).getText()));
+				quantity = BigInteger.valueOf(Long.valueOf(sManager.textFields.get("Quantity Input " + i).getText()));
 				total = valPerUnit.multiply(new BigDecimal(quantity));
 				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 				
 				grandTotalBefore = grandTotalBefore.add(total);
 				
-				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
+				sManager.labels.get("Before Tax Output " + i).setText(format.format(displayTotal.doubleValue()));
 			} else {
-				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
+				sManager.labels.get("Before Tax Output " + i).setText("0.00");
 			}
 			
 			//render total values after tax ((isk/unit x quantity) - ((isk/unit x quantity) x tax))
-			pos = new Vector2(610, Gdx.graphics.getHeight() - 34 - (i * 25));
-			Draw.rect(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, ShapeType.Filled, 0x3D3D3DFF);
-			Draw.boarder(sr, pos.x - 5, pos.y + 4 - height, width, height - 1, 1, 0xFFFFFFFF);
-			if(!sManager.textFields.get(i).getText().isEmpty() && !sManager.textFields.get(24).getText().isEmpty()){
-				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get(48).getText()))));
+			if(sManager.labels.get("After Tax Output " + i).getText().length != 0 && !sManager.textFields.get("Sales Tax: Input").getText().isEmpty() && !sManager.labels.get("Before Tax Output " + i).textEquals("0.00")){
+				
+				total = total.subtract(total.multiply(BigDecimal.valueOf(Double.valueOf(sManager.textFields.get("Sales Tax: Input").getText()))));
 				displayTotal = total.setScale(2, RoundingMode.HALF_EVEN);
 
 				grandTotalAfter = grandTotalAfter.add(total);
 				
-				Draw.string(batch, format.format(displayTotal.doubleValue()), pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
+				sManager.labels.get("After Tax Output " + i).setText(format.format(displayTotal.doubleValue()));
 			} else {
-				Draw.string(batch, "0.00", pos.sub(0, 1), new FontID("fonts/computer.ttf", 24), 0xFFFFFFFF);
+				sManager.labels.get("After Tax Output " + i).setText("0.00");
 			}
 		}
 		
-		//render grand totals
+		//update grand totals
 		BigDecimal grandTotalBeforeDisplay = grandTotalBefore.setScale(2, RoundingMode.HALF_EVEN);
 		BigDecimal grandTotalAfterDisplay = grandTotalAfter.setScale(2, RoundingMode.HALF_EVEN);
 		
-		Draw.fakeLabel(sr, batch, new Vector2(340, Gdx.graphics.getHeight() - 635f), 110f, 20f, "Grand Totals:", new FontID("fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(455, Gdx.graphics.getHeight() - 635f), 150f, 20f, format.format(grandTotalBeforeDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
-		Draw.fakeLabel(sr, batch, new Vector2(610, Gdx.graphics.getHeight() - 635f), 150f, 20f, format.format(grandTotalAfterDisplay.doubleValue()), new FontID("fonts/computer.ttf", 24));
+		sManager.labels.get("Before Tax Total Output").setText(format.format(grandTotalBeforeDisplay.doubleValue()));
+		sManager.labels.get("After Tax Total Output").setText(format.format(grandTotalAfterDisplay.doubleValue()));
 		
 		//footer
 		Draw.string(batch, "Market Responce Time: " + (bFactory.getButton(0).lastExecuteTime/1000000) + "ms", new Vector2(100, 46), new FontID("fonts/computer.ttf", 18), 0xFFFFFFFF);
@@ -241,11 +172,11 @@ public class StateItemHighBuy extends State {
 	public void update(float delta){
 		typeIDs.clear();
 		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.textFields.get(24 + i).getText()));
+			typeIDs.add(Types.getTypeID(sManager.textFields.get("Item Input " + i).getText()));
 		}
 		
 		systemID.clear();
-		systemID.add(Systems.getSystemID(sManager.textFields.get(49).getText()));
+		systemID.add(Systems.getSystemID(sManager.textFields.get("System: Input").getText()));
 		
 		sManager.update(delta);
 		bFactory.update(delta);

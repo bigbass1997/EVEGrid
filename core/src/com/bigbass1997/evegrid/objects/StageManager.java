@@ -1,6 +1,7 @@
 package com.bigbass1997.evegrid.objects;
 
-import java.util.ArrayList;
+import java.util.Hashtable;
+import java.util.Map.Entry;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -17,60 +18,64 @@ import com.bigbass1997.evegrid.graphics.Draw;
 public class StageManager {
 	
 	private Stage stage;
-	public ArrayList<TextField> textFields; private int tfID = 0;
-	public ArrayList<SelectBox<String>> selectBoxes; private int sbID = 0;
-	public ArrayList<Label> labels; private int lID = 0;
+	
+	public Hashtable<String, TextField> textFields;
+	public Hashtable<String, SelectBox<String>> selectBoxes;
+	public Hashtable<String, Label> labels;
 	
 	public StageManager(){
 		stage = new Stage();
 		Gdx.input.setInputProcessor(stage);
 		
-		textFields = new ArrayList<TextField>();
-		selectBoxes = new ArrayList<SelectBox<String>>();
-		labels = new ArrayList<Label>();
+		textFields = new Hashtable<String, TextField>();
+		selectBoxes = new Hashtable<String, SelectBox<String>>();
+		labels = new Hashtable<String, Label>();
 	}
 	
-	public int createTextField(String defaultText, Skin skin, Vector2 pos, Vector2 dim){
+	public void createTextField(Object id, String defaultText, Skin skin, Vector2 pos, Vector2 dim){
 		TextField tF = new TextField(defaultText, skin);
 		tF.setSize(dim.x, dim.y);
 		tF.setPosition(pos.x, pos.y);
-		textFields.add(tF);
+		textFields.put(id.toString(), tF);
 		stage.addActor(tF);
-		return tfID++;
+	}
+	public void createTextField(Object id, String defaultText, Skin skin, float x, float y, float width, float height){
+		this.createTextField(id, defaultText, skin, new Vector2(x, y), new Vector2(width, height));
 	}
 	
-	public int createSelectBox(Skin skin, Vector2 pos, Vector2 dim, String[] items){
+	public void createSelectBox(Object id, Skin skin, Vector2 pos, Vector2 dim, String[] items){
 		SelectBox<String> sB = new SelectBox<String>(skin);
 		sB.setPosition(pos.x, pos.y);
 		sB.setSize(dim.x, dim.y);
 		sB.setItems(items);
-		selectBoxes.add(sB);
+		selectBoxes.put(id.toString(), sB);
 		stage.addActor(sB);
-		return sbID++;
+	}
+	public void createSelectBox(Object id, Skin skin, float x, float y, float width, float height, String[] items){
+		this.createSelectBox(id, skin, new Vector2(x, y), new Vector2(width, height), items);
 	}
 	
-	public int createLabel(String text, Skin skin, Vector2 pos, Vector2 dim, int alignment){
+	public void createLabel(Object id, String text, Skin skin, Vector2 pos, Vector2 dim, int alignment){
 		Label label = new Label(text, skin);
 		label.setPosition(pos.x, pos.y);
 		label.setSize(dim.x, dim.y);
 		label.setAlignment(alignment);
-		labels.add(label);
+		labels.put(id.toString(), label);
 		stage.addActor(label);
-		return lID++;
 	}
-	public int createLabel(String text, Skin skin, float x, float y, float width, float height, int alignment){
-		return createLabel(text, skin, new Vector2(x, y), new Vector2(width, height), alignment);
+	public void createLabel(Object id, String text, Skin skin, float x, float y, float width, float height, int alignment){
+		this.createLabel(id, text, skin, new Vector2(x, y), new Vector2(width, height), alignment);
 	}
-	public int createLabel(String text, Skin skin, Vector2 pos, Vector2 dim){
-		return createLabel(text, skin, pos, dim, Align.center);
+	public void createLabel(Object id, String text, Skin skin, Vector2 pos, Vector2 dim){
+		this.createLabel(id, text, skin, pos, dim, Align.center);
 	}
-	public int createLabel(String text, Skin skin, float x, float y, float width, float height){
-		return createLabel(text, skin, new Vector2(x, y), new Vector2(width, height));
+	public void createLabel(Object id, String text, Skin skin, float x, float y, float width, float height){
+		this.createLabel(id, text, skin, new Vector2(x, y), new Vector2(width, height));
 	}
 	
 	public void render(ShapeRenderer sr){
-		for(Label label : labels){
-			float x = label.getX(), y = label.getY(), width = label.getWidth(), height = label.getHeight();
+		for(Entry<String, Label> entry : labels.entrySet()){
+			float x = entry.getValue().getX(), y = entry.getValue().getY(), width = entry.getValue().getWidth(), height = entry.getValue().getHeight();
 			Draw.rect(sr, x, y, width, height, ShapeType.Filled, 0x3D3D3DFF);
 			Draw.boarder(sr, x, y, width, height, 1, 0xFFFFFFFF);
 		}

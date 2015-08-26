@@ -10,12 +10,16 @@ import com.bigbass1997.evegrid.commands.CommandGetItemValues;
 import com.bigbass1997.evegrid.graphics.fonts.FontID;
 import com.bigbass1997.evegrid.graphics.skins.SkinID;
 import com.bigbass1997.evegrid.graphics.skins.SkinManager;
+import com.bigbass1997.evegrid.market.Systems;
+import com.bigbass1997.evegrid.market.Types;
 import com.bigbass1997.evegrid.objects.ButtonFactory;
 import com.bigbass1997.evegrid.objects.StageManager;
 
 public class StateSellOreVsRefine extends State {
 	
 	private StageManager sManager;
+	
+	private String[] minerals;
 
 	private ArrayList<Float> values;
 	private ArrayList<Integer> typeIDs;
@@ -48,29 +52,29 @@ public class StateSellOreVsRefine extends State {
 		SkinID skinc24 = new SkinID(new FontID("fonts/computer.ttf", 24));
 		float h = Gdx.graphics.getHeight();
 		
-		sManager.createLabel("Your %", SkinManager.getSkin(skinc32), 15f, h-32f, 90f, 22f);
-		sManager.createLabel("Ore Name", SkinManager.getSkin(skinc32), 120f, h-32f, 185f, 22f);
-		sManager.createLabel("Ore Quantity", SkinManager.getSkin(skinc32), 310f, h-32f, 150f, 22f);
+		sManager.createLabel("Your % Input", "Your %", SkinManager.getSkin(skinc32), 15f, h-32f, 90f, 22f);
+		sManager.createLabel("Ore Name", "Ore Name", SkinManager.getSkin(skinc32), 120f, h-32f, 185f, 22f);
+		sManager.createLabel("Ore Quantity", "Ore Quantity", SkinManager.getSkin(skinc32), 310f, h-32f, 150f, 22f);
 		
-		sManager.createLabel("Output Quantity", SkinManager.getSkin(skinc32), 165f, h-120f, 245f, 22f);
-		sManager.createLabel("Output Value", SkinManager.getSkin(skinc32), 415f, h-120f, 305f, 22f);
-		sManager.createLabel("Grand Total Values", SkinManager.getSkin(skinc32), 725f, h-120f, 460f, 22f);
+		sManager.createLabel("Output Quantity", "Output Quantity", SkinManager.getSkin(skinc32), 165f, h-120f, 245f, 22f);
+		sManager.createLabel("Output Value", "Output Value", SkinManager.getSkin(skinc32), 415f, h-120f, 305f, 22f);
+		sManager.createLabel("Grand Total Values", "Grand Total Values", SkinManager.getSkin(skinc32), 725f, h-120f, 460f, 22f);
 		
-		sManager.createLabel("Mineral Name", SkinManager.getSkin(skinc32), 10f, h-147f, 150f, 22f);
+		sManager.createLabel("Mineral Name", "Mineral Name", SkinManager.getSkin(skinc32), 10f, h-147f, 150f, 22f);
 		
-		sManager.createLabel("100%", SkinManager.getSkin(skinc32), 165f, h-147f, 120f, 22f);
-		sManager.createLabel("Your %", SkinManager.getSkin(skinc32), 290f, h-147f, 120f, 22f);
+		sManager.createLabel("Output Quantity 100%", "100%", SkinManager.getSkin(skinc32), 165f, h-147f, 120f, 22f);
+		sManager.createLabel("Output Quantity Your %", "Your %", SkinManager.getSkin(skinc32), 290f, h-147f, 120f, 22f);
 		
-		sManager.createLabel("100%", SkinManager.getSkin(skinc32), 415f, h-147f, 150f, 22f);
-		sManager.createLabel("Your %", SkinManager.getSkin(skinc32), 570f, h-147f, 150f, 22f);
+		sManager.createLabel("Output Value 100%", "100%", SkinManager.getSkin(skinc32), 415f, h-147f, 150f, 22f);
+		sManager.createLabel("Output Value Your %", "Your %", SkinManager.getSkin(skinc32), 570f, h-147f, 150f, 22f);
 		
-		sManager.createLabel("100%", SkinManager.getSkin(skinc32), 725f, h-147f, 150f, 22f);
-		sManager.createLabel("Your %", SkinManager.getSkin(skinc32), 880f, h-147f, 150f, 22f);
-		sManager.createLabel("Ore", SkinManager.getSkin(skinc32), 1035f, h-147f, 150f, 22f);
+		sManager.createLabel("Grand Total Values 100%", "100%", SkinManager.getSkin(skinc32), 725f, h-147f, 150f, 22f);
+		sManager.createLabel("Grand Total Values Your %", "Your %", SkinManager.getSkin(skinc32), 880f, h-147f, 150f, 22f);
+		sManager.createLabel("Grand Total Values Ore", "Ore", SkinManager.getSkin(skinc32), 1035f, h-147f, 150f, 22f);
 		
-		String[] minerals = new String[]{"Tritanium", "Pyerite", "Mexallon", "Isogen", "Nocxium", "Megacyte", "Zydrine", "Morphite"};
+		minerals = new String[]{"Tritanium", "Pyerite", "Mexallon", "Isogen", "Nocxium", "Megacyte", "Zydrine", "Morphite"};
 		for(int i = 0; i < minerals.length; i++){
-			sManager.createLabel(minerals[i], SkinManager.getSkin(skinc24), 10f, h-174f-(25 * i), 150f, 20f);
+			sManager.createLabel(minerals[i], minerals[i], SkinManager.getSkin(skinc24), 10f, h-174f-(25 * i), 150f, 20f);
 		}
 	}
 	
@@ -80,13 +84,13 @@ public class StateSellOreVsRefine extends State {
 	}
 	
 	public void update(float delta){
-		/*typeIDs.clear();
-		for(int i = 0; i < 24; i++){
-			typeIDs.add(Types.getTypeID(sManager.textFields.get(24 + i).getText()));
-		}
+		//typeIDs.clear();
+		/*for(int i = 0; i < minerals.length; i++){
+			typeIDs.add(Types.getTypeID(sManager.textFields.get("" + i).getText()));
+		}*/
 		
-		systemID.clear();
-		systemID.add(Systems.getSystemID(sManager.textFields.get(49).getText()));*/
+		//systemID.clear();
+		//systemID.add(Systems.getSystemID(sManager.textFields.get(49).getText()));
 		
 		sManager.update(delta);
 		bFactory.update(delta);
