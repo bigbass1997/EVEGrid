@@ -20,8 +20,6 @@ public class CommandGetItemValues implements Command {
 	
 	@Override
 	public void execute(){
-		System.out.println(systemID);
-		
 		Market market = new Market();
 		values.clear();
 		for(int i = 0; i < typeIDs.size(); i++){

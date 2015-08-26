@@ -3,12 +3,10 @@ package com.bigbass1997.evegrid.states;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
-import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Align;
 import com.bigbass1997.evegrid.commands.CommandChangeState;
@@ -34,8 +32,6 @@ public class StateItemHighBuy extends State {
 	
 	private ButtonFactory bFactory;
 	
-	private DecimalFormat df;
-	
 	private boolean initComplete = false;
 	
 	public StateItemHighBuy(StateManager sm) {
@@ -49,10 +45,6 @@ public class StateItemHighBuy extends State {
 		
 		bFactory = new ButtonFactory();
 		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
-		
-		df = new DecimalFormat("#");
-		df.setMaximumFractionDigits(2);
-		df.setMinimumIntegerDigits(40);
 		
 		SkinID skinc24 = new SkinID(new FontID("fonts/computer.ttf", 24));
 		SkinID skinc32 = new SkinID(new FontID("fonts/computer.ttf", 32));

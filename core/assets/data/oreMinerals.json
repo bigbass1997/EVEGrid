@@ -1,0 +1,626 @@
+{"items": [
+    {
+        "name": "Veldspar",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "415"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Concentrated Veldspar",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "436"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Dense Veldspar",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "457"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Scordite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "346"},
+            {"name": "Pyerite", "quantity": "173"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Condensed Scordite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "364"},
+            {"name": "Pyerite", "quantity": "182"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Massive Scordite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "381"},
+            {"name": "Pyerite", "quantity": "190"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Pyroxeres",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "351"},
+            {"name": "Pyerite", "quantity": "25"},
+            {"name": "Mexallon", "quantity": "50"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "5"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Solid Pyroxeres",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "369"},
+            {"name": "Pyerite", "quantity": "26"},
+            {"name": "Mexallon", "quantity": "53"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "5"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Viscous Pyroxeres",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "387"},
+            {"name": "Pyerite", "quantity": "27"},
+            {"name": "Mexallon", "quantity": "55"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "5"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Plagioclase",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "107"},
+            {"name": "Pyerite", "quantity": "213"},
+            {"name": "Mexallon", "quantity": "107"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Azure Plagioclase",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "113"},
+            {"name": "Pyerite", "quantity": "224"},
+            {"name": "Mexallon", "quantity": "113"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Rich Plagioclase",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "118"},
+            {"name": "Pyerite", "quantity": "235"},
+            {"name": "Mexallon", "quantity": "118"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Omber",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "85"},
+            {"name": "Pyerite", "quantity": "34"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "85"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Silvery Omber",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "90"},
+            {"name": "Pyerite", "quantity": "36"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "90"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Golden Omber",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "94"},
+            {"name": "Pyerite", "quantity": "38"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "94"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Kernite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "134"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "267"},
+            {"name": "Isogen", "quantity": "134"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Luminous Kernite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "141"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "281"},
+            {"name": "Isogen", "quantity": "141"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Fiery Kernite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "148"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "294"},
+            {"name": "Isogen", "quantity": "148"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Jaspet",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "350"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "75"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "8"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Pure Jaspet",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "368"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "79"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "8"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Pristine Jaspet",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "385"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "83"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "9"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Hemorphite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "2200"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "100"},
+            {"name": "Nocxium", "quantity": "120"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "15"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Vivid Hemorphite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "2310"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "105"},
+            {"name": "Nocxium", "quantity": "126"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "16"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Radiant Hemorphite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "2420"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "110"},
+            {"name": "Nocxium", "quantity": "132"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "17"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Hedbegite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "1000"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "200"},
+            {"name": "Nocxium", "quantity": "100"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "19"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Vitric Hedbergite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "1050"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "210"},
+            {"name": "Nocxium", "quantity": "105"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "20"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Glazed Hedbergite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "1100"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "220"},
+            {"name": "Nocxium", "quantity": "110"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "21"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Gneiss",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "2200"},
+            {"name": "Mexallon", "quantity": "2400"},
+            {"name": "Isogen", "quantity": "300"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Iridescent Gneiss",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "2310"},
+            {"name": "Mexallon", "quantity": "2520"},
+            {"name": "Isogen", "quantity": "315"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Prismatic Gneiss",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "2420"},
+            {"name": "Mexallon", "quantity": "2640"},
+            {"name": "Isogen", "quantity": "330"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Dark Ochre",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "10000"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "1600"},
+            {"name": "Nocxium", "quantity": "120"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Onyx Ochre",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "10500"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "1680"},
+            {"name": "Nocxium", "quantity": "126"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Obsidian Ochre",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "11000"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "1760"},
+            {"name": "Nocxium", "quantity": "132"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Spodumain",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "56000"},
+            {"name": "Pyerite", "quantity": "12050"},
+            {"name": "Mexallon", "quantity": "2100"},
+            {"name": "Isogen", "quantity": "450"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Bright Spodumain",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "58800"},
+            {"name": "Pyerite", "quantity": "12653"},
+            {"name": "Mexallon", "quantity": "2205"},
+            {"name": "Isogen", "quantity": "473"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Gleaming Spodumain",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "61600"},
+            {"name": "Pyerite", "quantity": "13255"},
+            {"name": "Mexallon", "quantity": "2310"},
+            {"name": "Isogen", "quantity": "495"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Crokite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "21000"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "760"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "135"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Sharp Crokite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "22050"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "798"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "142"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Crystalline Crokite",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "23100"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "836"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "149"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Bistot",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "12000"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "100"},
+            {"name": "Zydrine", "quantity": "450"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Triclinic Bistot",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "12600"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "105"},
+            {"name": "Zydrine", "quantity": "473"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Monoclinic Bistot",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "13200"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "110"},
+            {"name": "Zydrine", "quantity": "495"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Arkonor",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "22000"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "2500"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "320"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Crimson Arkonor",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "23100"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "2625"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "336"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Prime Arkonor",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "24200"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "2750"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "352"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "0"}
+        ]
+    },
+    {
+        "name": "Mercoxit",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "300"}
+        ]
+    },
+    {
+        "name": "Magma Mercoxit",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "315"}
+        ]
+    },
+    {
+        "name": "Vitreous Mercoxit",
+        "minerals": [
+            {"name": "Tritanium", "quantity": "0"},
+            {"name": "Pyerite", "quantity": "0"},
+            {"name": "Mexallon", "quantity": "0"},
+            {"name": "Isogen", "quantity": "0"},
+            {"name": "Nocxium", "quantity": "0"},
+            {"name": "Megacyte", "quantity": "0"},
+            {"name": "Zydrine", "quantity": "0"},
+            {"name": "Morphite", "quantity": "330"}
+        ]
+    }
+]}
