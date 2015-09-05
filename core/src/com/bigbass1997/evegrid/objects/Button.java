@@ -3,6 +3,7 @@ package com.bigbass1997.evegrid.objects;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Buttons;
+import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -21,12 +22,13 @@ public class Button {
 	private int tColor, bColor;
 	private String text;
 	private boolean ready = true;
+	private boolean activatedWithEnter;
 	
 	private GlyphLayout layout;
 
 	public long lastExecuteTime = 0;
 	
-	public Button(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text){
+	public Button(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text, boolean activatedWithEnter){
 		this.command = command;
 		this.pos = pos;
 		this.dim = dim;
@@ -34,6 +36,7 @@ public class Button {
 		this.tColor = tColor;
 		this.bColor = bColor;
 		this.text = text;
+		this.activatedWithEnter = activatedWithEnter;
 		
 		layout = new GlyphLayout(FontManager.getFont(fontID).font, text);
 	}
@@ -48,10 +51,11 @@ public class Button {
 		float mx = input.getX();
 		float my = -input.getY() + Gdx.graphics.getHeight();
 		
-		if(!ready && !input.isButtonPressed(Buttons.LEFT)) ready = true;
+		if(!ready && !input.isButtonPressed(Buttons.LEFT) && (input.isKeyPressed(Keys.ENTER) && activatedWithEnter)) ready = true;
 		
 		if(ready){
-			if(input.isButtonPressed(Buttons.LEFT) && mx >= pos.x && mx <= pos.x + dim.x && my >= pos.y && my <= pos.y + dim.y){
+			if((input.isButtonPressed(Buttons.LEFT) && mx >= pos.x && mx <= pos.x + dim.x && my >= pos.y && my <= pos.y + dim.y) ||
+					(input.isKeyPressed(Keys.ENTER) && activatedWithEnter)){
 				callCommand();
 				ready = false;
 			}

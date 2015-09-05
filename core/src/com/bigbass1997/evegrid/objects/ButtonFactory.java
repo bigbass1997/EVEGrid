@@ -18,12 +18,16 @@ public class ButtonFactory {
 		id = -1;
 	}
 	
-	public int createButton(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text){
-		Button b = new Button(command, pos, dim, fontID, tColor, bColor, text);
+	public int createButton(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text, boolean activatedWithEnter){
+		Button b = new Button(command, pos, dim, fontID, tColor, bColor, text, activatedWithEnter);
 		buttonList.add(b);
 		
 		id++;
 		return id;
+	}
+	
+	public int createButton(Command command, Vector2 pos, Vector2 dim, FontID fontID, int tColor, int bColor, String text){
+		return this.createButton(command, pos, dim, fontID, tColor, bColor, text, false);
 	}
 	
 	public void render(ShapeRenderer sr, SpriteBatch batch){

@@ -46,7 +46,7 @@ public class StateSellOreVsRefine extends State {
 		
 		bFactory = new ButtonFactory();
 		
-		bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
+		bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT", true);
 
 		qtyFormat = NumberFormat.getInstance();
 		qtyFormat.setMinimumFractionDigits(0);

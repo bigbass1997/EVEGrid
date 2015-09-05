@@ -44,7 +44,7 @@ public class StateItemHighBuy extends State {
 		systemID = new ArrayList<Integer>();
 		
 		bFactory = new ButtonFactory();
-		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT");
+		int b = bFactory.createButton(new CommandGetItemValues(values, typeIDs, systemID), new Vector2(10, 10), new Vector2(80, 20), new FontID("fonts/computer.ttf", 20), 0x0000FFFF, 0xDDDDDDFF, "SUBMIT", true);
 		
 		SkinID skinc24 = new SkinID(new FontID("fonts/computer.ttf", 24));
 		SkinID skinc32 = new SkinID(new FontID("fonts/computer.ttf", 32));
